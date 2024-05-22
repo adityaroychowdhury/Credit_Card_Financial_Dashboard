@@ -1,24 +1,25 @@
-# Credit_Card_Financial_Dashboard
+# CREDIT CARD FINANCIAL DASHBOARD
 
-### Project Overview
+### PROJECT OVERVIEW
 
 The primary goal of this project is to develop a comprehensive, real-time dashboard using Power BI that offers stakeholders insightful and actionable data regarding key performance metrics and trends in credit card operations. This will enable effective monitoring, analysis, and strategic decision-making.
 
-### Data Sources
+### DATA SOURCES
 The primary data used for this analysis is the "credit_card.csv" and "cust.csv" files. These datasets enable comprehensive analysis and visualization of credit card operations and customer insights.
 
-### Tools
+### TOOLS
 - Excel - Data Cleaning
 - SQL database and Server - Importing Data to SQL database
 - PowerBI - Creating Interactive Reports
 
-### Data Cleaning/Preparation
+### DATA CLEANING AND PREPARATION
 In the initial data preparation phase, we performed the following tasks:
 1. Data loading and inspection.
 2. Handling missing values.
 3. Data cleaning and formatting.
 
-### Exploratory Data Analysis
+### EXPLORATORY DATA ANALYSIS
+
 EDA involves exploring the financial data to answer key questions, such as :
 1. What are the weekly revenue trends across different card types?
 2. How does customer satisfaction vary by income group and gender?
@@ -26,7 +27,42 @@ EDA involves exploring the financial data to answer key questions, such as :
 4. What is the distribution of transactions by marital status and salary count?
 5. How do transaction volumes differ between male and female customers?
 
-### Key Features and Functionality
+
+### DAX QUERIES
+
+AgeGroup = SWITCH(
+ TRUE(),
+ 'public cust_detail'[customer_age] < 30, "20-30",
+ 'public cust_detail'[customer_age] >= 30 && 'public cust_detail'[customer_age] < 40, "30-40",
+ 'public cust_detail'[customer_age] >= 40 && 'public cust_detail'[customer_age] < 50, "40-50",
+ 'public cust_detail'[customer_age] >= 50 && 'public cust_detail'[customer_age] < 60, "50-60",
+ 'public cust_detail'[customer_age] >= 60, "60+",
+ "unknown"
+ )
+IncomeGroup = SWITCH(
+ TRUE(),
+ 'public cust_detail'[income] < 35000, "Low",
+ 'public cust_detail'[income] >= 35000 && 'public cust_detail'[income] <70000, "Med",
+ 'public cust_detail'[income] >= 70000, "High",
+ "unknown"
+)
+
+week_num2 = WEEKNUM('public cc_detail'[week_start_date])
+Revenue = 'public cc_detail'[annual_fees] + 'public cc_detail'[total_trans_amt] + 'public cc_detail'[interest_earned]
+Current_week_Reveneue = CALCULATE(
+ SUM('public cc_detail'[Revenue]),
+ FILTER(
+ ALL('public cc_detail'),
+ 'public cc_detail'[week_num2] = MAX('public cc_detail'[week_num2]))) 
+Previous_week_Reveneue = CALCULATE(
+ SUM('public cc_detail'[Revenue]),
+ FILTER(
+ ALL('public cc_detail'),
+ 'public cc_detail'[week_num2] = MAX('public cc_detail'[week_num2])-1))
+
+ 
+
+### KEY FEATURES AND FUNCTIONALITY
 
 1. Interactive Weekly Report
 - Both dashboards provide real-time updates and insights on a weekly basis, ensuring stakeholders have the most current information available.
@@ -60,7 +96,7 @@ EDA involves exploring the financial data to answer key questions, such as :
 - Highlighting the top five states with the highest number of customers, aiding in geographic targeting and resource allocation.
 
 
-  ### Credit Card Transaction Report
+  ### CREDIT CARD TRANSACTION REPORT
 
 - ## Transaction Metrics
 -Detailed insights into credit card transactions, including volume, value, and frequency, comparative analysis of transaction data across different time periods and customer segments.
@@ -97,4 +133,26 @@ Provide training sessions for stakeholders to effectively use and interpret the 
 Regular updates and enhancements based on user feedback and evolving business needs to keep the dashboards relevant and effective.
 
 
+### PROJECT INSIGHTS - WEEK 53 ( 31st DEC)
 
+WoW Change : 
+- Revenue increased by 24.4 %
+- Total Transaction Amt & Count increased by 2.0M % & 100%
+- Customer count increased by xx%
+
+Overview YTD:
+- Overall revenue is 57.7M
+- Total interest is 8.1M
+- Total transaction amount is 46.5M
+- Male customers are contributing more in revenue 32M, female 26M
+- Average Age is 46
+- Blue & Silver credit card are contributing to 93.5% of overall transactions
+- TX, NY & CA is contributing to 72.85%
+- Overall Activation rate is 57.44%
+- Overall Delinquent rate is 6.05%
+- Highest category in delinquent rate is from "self-employed" which is 14.88%
+
+
+  ## CONCLUSION
+  
+The comprehensive credit card weekly dashboard project aims to provide stakeholders with powerful tools to monitor, analyze, and optimize credit card operations. By leveraging the capabilities of Power BI, this project delivers real-time insights, detailed analytics, and interactive visualizations that drive better decision-making and strategic planning.
