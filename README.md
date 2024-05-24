@@ -168,7 +168,6 @@ Regular updates and enhancements based on user feedback and evolving business ne
 WoW Change : 
 - Revenue increased by 24.4 %
 - Total Transaction Amt & Count increased by 2.0M % & 100%
-- Customer count increased by xx%
 
 Overview YTD:
 - Overall revenue is 57.7M
