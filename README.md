@@ -1,5 +1,7 @@
 # CREDIT CARD FINANCIAL DASHBOARD
 
+# Dashboard Link : https://app.powerbi.com/view?r=eyJrIjoiZWNmMWJhN2QtYTc5Ny00N2FmLWJkYmMtNWI0NGIzY2ZlODc0IiwidCI6Ijk1YzcyMTkwLTQyMTctNDkyYS1iMjcxLWU1YzYwNzYxMzc0ZCJ9
+
 ### PROJECT OVERVIEW
 
 The primary goal of this project is to develop a comprehensive, real-time dashboard using Power BI that offers stakeholders insightful and actionable data regarding key performance metrics and trends in credit card operations. This will enable effective monitoring, analysis, and strategic decision-making.
@@ -26,6 +28,32 @@ EDA involves exploring the financial data to answer key questions, such as :
 3. Which states have the highest number of active credit card users?
 4. What is the distribution of transactions by marital status and salary count?
 5. How do transaction volumes differ between male and female customers?
+
+### STEPS FOLLOWED
+
+1. Data Collection and Inspection:
+Gathered "credit_card.csv" and "cust.csv" files for credit card and customer data.
+
+2. Data Cleaning and Formatting:
+Used Excel for initial data cleaning, handling missing values, and ensuring data consistency.
+
+3. Data Import to SQL Database:
+Imported cleaned data into an SQL database and server for efficient storage and management.
+
+4. Power BI Dashboard Creation:
+Utilized Power BI to develop interactive dashboards for real-time analysis of credit card operations.
+
+5. DAX Queries Development:
+Developed DAX queries for calculating age groups, income groups, revenue, and other key metrics.
+
+6. Dashboard Enhancement and Visualization:
+Enhanced dashboards with interactive elements, filters, and visualizations for comprehensive analysis.
+
+7. Weekly Insights and Reporting:
+Generated weekly insights and reports to monitor performance trends and key metrics, aiding strategic decision-making.
+
+8. Continuous Improvement:
+Implemented user feedback and iteratively improved dashboards to ensure relevance and effectiveness.
 
 
 ### DAX QUERIES
@@ -78,6 +106,8 @@ Previous_week_Reveneue = CALCULATE(
 
 4. Column Charts and Comparative Analysis
 - Utilization of column charts to compare different revenue metrics, providing a clear visual representation of performance trends and differences.
+
+  
 
   ### Dashboard Breakdown
 
